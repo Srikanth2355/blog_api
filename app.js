@@ -4,6 +4,11 @@ const post = require("./api/models/post");
 const postdata = new post();
 const port = process.env.PORT || 3000;
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+  });
+
 app.get("/", (req, res) => {
     res.status(200).send("hello");
 })
